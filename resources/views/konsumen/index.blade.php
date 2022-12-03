@@ -47,6 +47,7 @@
                                 <th>id_kecamatan</th>
                                 <th>id_kota</th>
                                 <th>tipe_pelanggan</th>
+                                <th>Referal</th>
                                 <th>Tanggal Buat</th>
                                 <th width="15%"><i class="fa fa-cogs" aria-hidden="true"></i></th>
                             </tr>
@@ -111,6 +112,8 @@
                     data: 'id_kota'
                 }, {
                     data: 'tipe_pelanggan'
+                }, {
+                    data: 'referal'
                 }, {
                     data: 'tgl_buat'
                 }, {

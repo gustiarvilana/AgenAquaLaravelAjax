@@ -48,6 +48,7 @@
                                 <th>status_bayar</th>
                                 <th>sisa_bayar</th>
                                 <th>cicil_ke</th>
+                                <th>Referal</th>
                                 <th>Tanggal Buat</th>
                                 <th width="15%"><i class="fa fa-cogs" aria-hidden="true"></i></th>
                             </tr>
@@ -113,6 +114,8 @@
                     data: 'sisa_bayar'
                 }, {
                     data: 'cicil_ke'
+                }, {
+                    data: 'referal'
                 }, {
                     data: 'tgl_buat'
                 }, {

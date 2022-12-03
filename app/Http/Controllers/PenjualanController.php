@@ -58,6 +58,8 @@ class PenjualanController extends Controller
         }
         $new_kode = 'P' . $kode;
 
+        $konsumen = Konsumen::where('id_konsumen', $id)->first();
+
         $penjualan = Penjualan::create([
             'kode_penjualan' => $new_kode,
             'id_pelanggan' => $id,
@@ -68,6 +70,7 @@ class PenjualanController extends Controller
             'status_bayar' => '0',
             'sisa_bayar' => 0,
             'cicil_ke' => 0,
+            'referal' => $konsumen->referal,
         ]);
         session(['id_penjualan' => $penjualan->id_penjualan]);
         session(['kode_penjualan' => $penjualan->kode_penjualan]);
@@ -198,9 +201,13 @@ class PenjualanController extends Controller
             ]);
             $penjualanDetail->delete();
         }
+        if ($galon) {
+            $galon->delete();
+        }
+        if ($pengeluaran) {
+            $pengeluaran->delete();
+        }
 
-        $galon->delete();
-        $pengeluaran->delete();
         $penjualan->delete();
         return response()->json('Penjualan Telah dihapus', 204);
     }

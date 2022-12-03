@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HargaJenis;
+use App\Models\Karyawan;
 use App\Models\Konsumen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -34,7 +35,8 @@ class KonsumenController extends Controller
     {
         $cities = City::where('province_code', '32')->pluck('name', 'id');
         $jenis_pelanggan = HargaJenis::all();
-        return view('konsumen.index', compact('cities', 'jenis_pelanggan'));
+        $karyawan = Karyawan::all();
+        return view('konsumen.index', compact('cities', 'jenis_pelanggan', 'karyawan'));
     }
 
     public function create()
@@ -45,7 +47,7 @@ class KonsumenController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        $validatedData = \Validator::make($input, [
+        $validatedData = Validator::make($input, [
             'kode_konsumen'  => '',
             'nama'           => 'required',
             'alamat'         => 'required',

@@ -87,6 +87,19 @@
                             </select>
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <div class="col-md-3 ml-4">
+                            <label class="col-md-3 col-form-label">Referal</label>
+                        </div>
+                        <div class="col-md-6">
+                            <select class="form-control" name="referal" id="referal" required>
+                                <option value="">Pilih Salles</option>
+                                @foreach ($karyawan as $item)
+                                    <option value="{{ $item->nik }}">{{ $item->nik . ' / ' . $item->nama }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     {{-- <button class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
